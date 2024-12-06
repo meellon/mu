@@ -138,6 +138,8 @@ meet room example
         -> Brands가 없으면 Brands를 새로 생성하고 등록하도록 수정.
   7. SubQuery 개선
     - 데이터 사이즈 및 요구사항에 맞는 최적화 쿼리 개선 필요.
+  8. 카테고리 확장
+    - Enum -> Db Table로 변경
 ~~~
 
 ### 구현
