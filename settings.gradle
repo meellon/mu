@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'Rest-API'
+include 'models'
+include 'apis'
+include 'repositories'
+

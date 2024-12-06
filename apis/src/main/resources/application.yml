@@ -1,0 +1,15 @@
+app:
+  name: MyProject-Apis
+
+spring:
+  profiles:
+    include:
+      - core
+      - database
+      - flyway
+      - openapi
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+
+server:
+  shutdown: graceful

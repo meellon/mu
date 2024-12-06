@@ -1,0 +1,83 @@
+buildscript {
+    ext {
+        springBootVersion = '3.4.0'
+        queryDslVersion = '5.0.0'
+        commonsLangVersion = '3.12.0'
+        openApiVersion = '2.7.0'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:1.1.6.RELEASE")
+    }
+}
+
+allprojects {
+    group = 'com.myproject'
+    version = '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17) // Java 17 (Corretto)
+        }
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        set('snippetsDir', file("build/generated-snippets"))
+    }
+
+    dependencies {
+        runtimeOnly 'com.h2database:h2:2.2.224'
+
+        compileOnly 'org.projectlombok:lombok'
+
+        implementation 'org.flywaydb:flyway-core'
+        implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
+        implementation "org.springframework.boot:spring-boot-starter"
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation "org.springframework.boot:spring-boot-starter-logging"
+        implementation "org.springframework.boot:spring-boot-starter-json"
+        implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+
+        implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openApiVersion}"
+
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+        annotationProcessor 'org.projectlombok:lombok'
+
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    }
+
+    tasks.named('test') {
+        outputs.dir snippetsDir
+        useJUnitPlatform()
+    }
+}
+gradle.buildFinished {
+    project.buildDir.deleteDir()
+}

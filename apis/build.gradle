@@ -1,0 +1,24 @@
+plugins {
+    id 'application'
+}
+tasks.named('jar') {
+    enabled = false
+}
+tasks.named('bootJar') {
+    archiveFileName = 'application.jar' // 생성될 실행 JAR 파일 이름 설정
+    manifest {
+        attributes 'Main-Class': 'com.myproject.apis.ServiceApplication'
+    }
+}
+
+dependencies {
+    implementation project(":models")
+    implementation project(":repositories")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
