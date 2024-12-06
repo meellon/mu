@@ -1,8 +1,8 @@
-package com.myproject.repositories.domains.impls;
+package com.myproject.apis.repositories.impls;
 
 import com.myproject.models.domains.entities.BrandEntity;
-import com.myproject.repositories.domains.interfaces.IBrandJpaRepository;
-import com.myproject.repositories.domains.interfaces.IBrandRepositoryDSLCustom;
+import com.myproject.apis.repositories.interfaces.IBrandJpaRepository;
+import com.myproject.apis.repositories.interfaces.IBrandRepositoryDSLCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

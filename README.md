@@ -43,6 +43,9 @@ meet room example
     - services : 서비스 도메인의 비지니스 로직(서비스 특화)
       - reqs : request 객체
       - reps : response 객체
+    - repositories
+      - impls : queryDSL 구현체
+      - interfaces : JPA, QueryDSL interface
   - models
     - components : Component 관리 repo
     - configurations : Configurations 관리 repo
@@ -66,7 +69,7 @@ meet room example
   - repositories : DA에 해당하는 인터페이스와 구현체
     - commons : JPA interface wrapping
     - configuration : DataManager, QueryDSL
-    - domains
+    - domains (2024.12.06 -> apis로 이전)
       - impls : queryDSL 구현체
       - interfaces : JPA, QueryDSL interface
 

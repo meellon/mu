@@ -1,4 +1,4 @@
-package com.myproject.repositories.domains.interfaces;
+package com.myproject.apis.repositories.interfaces;
 
 import com.myproject.models.domains.entities.CoordinationEntity;
 import com.myproject.repositories.commons.IJpaRepository;

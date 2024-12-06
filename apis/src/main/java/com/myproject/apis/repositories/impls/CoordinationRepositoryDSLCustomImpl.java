@@ -1,18 +1,15 @@
-package com.myproject.repositories.domains.impls;
+package com.myproject.apis.repositories.impls;
 
 import com.myproject.models.components.MessageComponent;
 import com.myproject.models.domains.entities.CoordinationEntity;
 import com.myproject.models.domains.entities.QCoordinationEntity;
 import com.myproject.models.domains.enumerations.CoordinationCategory;
-import com.myproject.repositories.domains.interfaces.ICoordinationJpaRepository;
-import com.myproject.repositories.domains.interfaces.ICoordinationRepositoryDSLCustom;
-import com.querydsl.core.BooleanBuilder;
+import com.myproject.apis.repositories.interfaces.ICoordinationJpaRepository;
+import com.myproject.apis.repositories.interfaces.ICoordinationRepositoryDSLCustom;
 import com.querydsl.core.Tuple;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.JPQLQuery;
-import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
